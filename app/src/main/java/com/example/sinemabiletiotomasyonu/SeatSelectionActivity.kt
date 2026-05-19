@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class SeatSelectionActivity : AppCompatActivity() {
 
-    // Sadece o anki tıklamaları hafızada tutacak geçici liste
+
     private val secilenKoltuklar = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,17 +21,17 @@ class SeatSelectionActivity : AppCompatActivity() {
         val gridLayout = btnKoltukOnayla.parent as android.view.ViewGroup
         val koltukGrid = gridLayout.getChildAt(1) as GridLayout
 
-        // Grid içindeki tüm koltukları tek tek dönüyoruz
+
         for (i in 0 until koltukGrid.childCount) {
             val koltuk = koltukGrid.getChildAt(i) as Button
             val koltukAdi = koltuk.text.toString()
 
-            // Hafıza kaydını sildik! Artık ilk açılışta herkes YEMYEŞİL.
+
             koltuk.setBackgroundColor(Color.parseColor("#4CAF50"))
             koltuk.isEnabled = true
 
             koltuk.setOnClickListener {
-                // Koltuk zaten seçilmişse iptal et (Yeşil yap)
+
                 if (secilenKoltuklar.contains(koltukAdi)) {
                     koltuk.setBackgroundColor(Color.parseColor("#4CAF50")) // Yeşil
                     secilenKoltuklar.remove(koltukAdi)
@@ -45,7 +45,7 @@ class SeatSelectionActivity : AppCompatActivity() {
             }
         }
 
-        // Onaylama butonuna basıldığında
+
         btnKoltukOnayla.setOnClickListener {
             if (secilenKoltuklar.isEmpty()) {
                 Toast.makeText(this, "Lütfen en az bir koltuk seçiniz!", Toast.LENGTH_SHORT).show()

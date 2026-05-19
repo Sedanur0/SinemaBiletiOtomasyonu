@@ -14,10 +14,10 @@ class SummaryActivity : AppCompatActivity() {
         val btnAnaSayfa = findViewById<Button>(R.id.btnAnaSayfa)
         val txtBiletDetay = findViewById<TextView>(R.id.txtBiletDetay)
 
-        // Yan sayfadan gönderilen koltuk isimlerini yakalıyoruz
+
         val gelenKoltuklar = intent.getStringExtra("SECILEN_KOLTUKLAR")
 
-        // Ekrandaki yazıyı dinamik olarak güncelliyoruz
+
         txtBiletDetay.text = "Film: Seçilen Film\nTarih: 20 Mayıs 2026\nSaat: 20:00\nKoltuk: $gelenKoltuklar"
 
         btnAnaSayfa.setOnClickListener {
